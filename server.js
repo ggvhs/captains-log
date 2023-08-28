@@ -61,3 +61,16 @@ app.get('/logs', async function(req,res){
 app.get('/logs/new' , (req,res) => {
     res.render('New')
 })
+
+//create
+app.post('/logs', async(req, res) =>{
+    console.log("this is the log", req.body)
+    if(req,body.shipIsBroken === 'on'){
+        req.body.shipIsBroken = true
+    }else{
+        req.body.shipIsBroken = false
+    }
+    const createdLog = await Log.create(req.body)
+    console.log(createdLog)
+    res.redirect('/logs')
+})
