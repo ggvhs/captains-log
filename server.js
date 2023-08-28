@@ -97,4 +97,19 @@ app.get('/logs/:id/edit', async (req,res) =>{
 
 // update
 
+app.put('/logs/:id' , async(req,res) =>{
+    req.body.shipIsBroken === "on" ? req.body.shipIsBroken = true: req.body.shipIsBroken = false;
+
+    //find logs and update it by id
+    const updatedLog = await Log.findByIdAndUpdate(req.params.id , req.body)
+    console.log(updatedLog)
+    res.redirect(`/logs/${req.params.id}`)
+})
+
+
 // delete
+
+app.delete('/logs/:id', async(req,res) => {
+    await Log.findByIdAndRemove(req.params.id)
+    res.redirect('/logs')
+})
