@@ -48,9 +48,16 @@ app.use(express.urlencoded({extended:false}))
 app.use(methodOverride('_method'));
 
 
+// PLEASE CONFIGURE THE INDEX LATER
 app.get('/logs', async function(req,res){
     const foundLogs = await log.find({})
     res.render('Index',{
         logs: foundLogs
     })
 } )
+
+
+// new route
+app.get('/logs/new' , (req,res) => {
+    res.render('New')
+})
