@@ -66,7 +66,7 @@ app.get('/logs/new' , (req,res) => {
 //create
 app.post('/logs', async(req, res) =>{
     console.log("this is the log", req.body)
-    if(req,body.shipIsBroken === 'on'){
+    if(req.body.shipIsBroken === 'on'){
         req.body.shipIsBroken = true
     }else{
         req.body.shipIsBroken = false
@@ -75,3 +75,26 @@ app.post('/logs', async(req, res) =>{
     console.log(createdLog)
     res.redirect('/logs')
 })
+
+
+//show
+app.get("/logs/:id" , async (req,res) =>{
+    const oneLog = await Log.findById(req.params.id)
+    res.render('Show', {
+        log: oneLog
+    })
+})
+
+
+//edit 
+app.get('/logs/:id/edit', async (req,res) =>{
+    const foundLogs = await Log.findById(req.params.id)
+
+    res.render('Edit' , {
+        log: foundLogs
+    })
+})
+
+// update
+
+// delete

@@ -9,7 +9,7 @@ function New(){
                 Title: <input type="text" name='title' /> <br />
                 Entry: <input type="textarea" name='entry' /> <br />
                 Is the ship broken? <input type="checkbox" name='shipIsBroken' /><br />
-                Submit <input type="submit" />
+                Submit <input type="submit" value="create Log" />
             </form>
             <nav>
                 <a href="/logs">Log History</a>
