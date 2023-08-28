@@ -1,5 +1,6 @@
 require('dotenv').config();
-const express = require("express")
+const express = require("express");
+const Log = require('./models/log')
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 
@@ -50,7 +51,7 @@ app.use(methodOverride('_method'));
 
 // PLEASE CONFIGURE THE INDEX LATER
 app.get('/logs', async function(req,res){
-    const foundLogs = await log.find({})
+    const foundLogs = await Log.find({})
     res.render('Index',{
         logs: foundLogs
     })

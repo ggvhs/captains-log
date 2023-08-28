@@ -11,6 +11,9 @@ function New(){
                 Is the ship broken? <input type="checkbox" name='shipIsBroken' /><br />
                 Submit <input type="submit" />
             </form>
+            <nav>
+                <a href="/logs">Log History</a>
+            </nav>
         </div>
     )
 }
